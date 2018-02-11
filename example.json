@@ -1,0 +1,105 @@
+{
+    "Category" : [
+        {
+            "CategoryName" : "Electronics",
+            "SubCategory" : [
+                {
+                    "SubCategoryName" : "TV",
+                    "SubSubCategory" : [
+                        {
+                            "SubSubCategoryName" : "Samsung",
+                            "Products" : ["obj1", "obj2", "obj3"]
+                        },
+                        {
+                            "SubSubCategoryName" : "LG",
+                            "Products" : ["obj1", "obj2", "obj3"]
+                        }
+                    ]
+                },
+                {
+                    "SubCategoryName" : "Mobiles",
+                    "SubSubCategory" : [
+                        {
+                            "SubSubCategoryName" : "Lenovo",
+                            "Products" : ["obj1", "obj2", "obj3"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CategoryName" : "Fashion",
+            "SubCategory" : [
+                {
+                    "SubCategoryName" : "Men",
+                    "SubSubCategory" : [
+                        {
+                            "SubSubCategoryName" : "T-Shirt",
+                            "Products" : ["obj1", "obj2", "obj3"]
+                        },
+                        {
+                            "SubSubCategoryName" : "Jeans",
+                            "Products" : ["obj1", "obj2", "obj3"]
+                        }
+                    ]
+                },
+                {
+                    "SubCategoryName" : "Women",
+                    "SubSubCategory" : [
+                        {
+                            "SubCategoryName" : "Shirt",
+                            "Products" : ["obj1", "obj2", "obj3"]
+                        },
+                        {
+                            "SubCategoryName" : "Pants",
+                            "Products" : ["obj1", "obj2", "obj3"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

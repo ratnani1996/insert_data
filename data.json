@@ -1,0 +1,36 @@
+{
+    "availableSizes" : [ 
+        6, 
+        7, 
+        8, 
+        9, 
+        10, 
+        11
+    ],
+    "sizes" : [ 
+        6, 
+        7, 
+        8, 
+        9, 
+        10, 
+        11, 
+        12
+    ],
+    "availableColor" : [ 
+        "Red", 
+        "Black", 
+        "Brown", 
+        "White"
+    ],
+    "discountAvailable" : 1,
+    "unitsInStock" : 110,
+    "productName" : "Leewon Men's Canvas Loafers & Moccasins",
+    "productDescription" : "Upper Material / Sole Material : Canvas and Synthetic / Airmix Lifestyle: Loafers & Moccasins / Casual / Sneakers Toe Style / Closure : Round Toe / Slip On Padded FootBed, Cushioned Ankle, Fully adjustable straps, Shock-absorbing Anti-Skate sole Care Instructions: Allow your pair of shoes to air and de-odorize at regular basis; use shoe bags to prevent any stains or mildew; dust any dry dirt from the surface using a clean cloth; do not use polish or shiner\r\n",
+    "productAvailable" : true,
+    "msrp" : 310,
+    "picture" : "https://images-na.ssl-images-amazon.com/images/I/710B16bNF6L._UL1500_.jpg",
+    "QuantityPerUnit" : 1,
+    "CategoryName" : "Shoes",
+    "SubCategory" : "Women",
+    "SubSubCategory" : "Woodland"
+}

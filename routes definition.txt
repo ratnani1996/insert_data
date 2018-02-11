@@ -1,0 +1,2 @@
+/ == render seller page
+/input/product == store the category and the product and it's description

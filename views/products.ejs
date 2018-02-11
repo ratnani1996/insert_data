@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Products</title>
+    </head>
+    <body>
+        <form id="product_submit" action="/input/product" method="POST">
+            <input type="text" name="product_name" placeholder="Product Name" >
+            <input type="text" name="product_description" placeholder="Product Description" >
+            <input type="text" name="category_name" placeholder="Category name">
+            <input type="text" name="category_description" placeholder="Category Description">
+            <input type="text" name="category_link" placeholder="Category Link">
+            <input type="text" name="product_vailable" placeholder="product_availability" >
+            <input type="text" name="msrp" placeholder="Price" >
+            <p>Available sizes</p>
+            <input type="radio" name="size_xs" value="XS">XS
+            <input type="radio" name="size_s" value="S">S
+            <input type="radio" name="size_m" value="M">M
+            <input type="radio" name="size_l" value="L">L
+            <input type="radio" name="size_xl" value="XL">XL
+            <input type="radio" name="size_xxl" value="XXL">XXL
+            <input type="text" name="color_1" placeholder="Available Color">
+            <input type="text" name="color_2" placeholder="Available Color">
+            <input type="text" name="color_3" placeholder="Available Color">
+            <input type="text" name="quantity" placeholder="quantity">
+            <input type="number" name="discount" placeholder="Discount">
+            <input type="text" name="picture_link" placeholder="Picture Link">
+            <input type="submit" placeholder="submit">
+        </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            var pathArray = window.location.pathname.split('/');
+            console.log(pathArray)
+            $("#product_submit").on('submit',(event)=>{
+                event.preventDefault();
+                $.ajax({
+                    url : '/input/product',
+                    type : 'POST',
+                    data : {
+                        id : pathArray[3],
+                        product_name : $("#product_submit:nth-child(1)").val()
+                    },
+                    success : function(){
+                        console.log(`La la la la id is sent`)
+                    }
+                })
+            })
+
+        </script>
+    </body>
+</html>
