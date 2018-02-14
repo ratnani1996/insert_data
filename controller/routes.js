@@ -492,15 +492,14 @@ router.post('/input/product', (req, res)=>{
         sizes : req.body.sizes,
         availableSizes : req.body.availableSizes
     })
-
-    SupplierModel.findById(`5a79cc7992260119b8b2bd88`)
+    SupplierModel.findById(`5a83d45c597e1e29cce5ee50`)
                  .then((supplier)=>{
                      product.supplierId.push(supplier);
                      //first find the category
                      return categoryModel.findOne({"Category.CategoryName" : req.body.CategoryName})
                  })
                  .then((category)=>{
-                     //if we have not found any category then there is no sub category and also no sub sub cateogry
+                     //if we have not found any category then there is no sub category and also no sub sub category
                      if(!category){
                          var category = new categoryModel({});
                          category.Category.push({
@@ -532,7 +531,7 @@ router.post('/input/product', (req, res)=>{
                      }
                  })
                  .then((category)=>{
-                     //if we have not found the sub category then there is a category but no subcategory and also no sub sub category
+                     //there is a category but no subcategory and also no sub sub category
                      //yahan se kaam challoo kr deo kl yeh waala part na chal rha
                      if(!category){
                          categoryModel.findOne({"Category.CategoryName" : req.body.CategoryName})
@@ -543,7 +542,7 @@ router.post('/input/product', (req, res)=>{
                                           category.Category[0].SubCategory[0].SubSubCategory.push({
                                               "SubSubCategoryName" : req.body.SubSubCategory
                                           })
-                                          category.Category[0].SubCategor[0].SubSubCategory[0].Products.push(product);
+                                          category.Category[0].SubCategory[0].SubSubCategory[0].Products.push(product);
                                           Promise.all([product.save(), category.save()])
                                                  .then(()=>{
                                                     categoryModel.find()
@@ -565,10 +564,29 @@ router.post('/input/product', (req, res)=>{
                  .then((category)=>{
                      //if we have a category and a sub category but no sub sub category
                      if(!category){
-
+                      categoryModel.findOne({"Category.CategoryName" : req.body.CategoryName,
+                       "Category.CategoryName.SubCategoryName":req.body.CategoryName.SubCategoryName})
+                        .then(category=>{
+                          console.log(category);
+                          category.Category[0].SubCategory[0].SubSubCategory.push({
+                                              "SubSubCategoryName" : req.body.SubSubCategory
+                                          });
+                          category.Category[0].SubCategory[0].SubSubCategory[0].Products.push(product);
+                          Promise.all([product.save(), category.save()])
+                                                 .then(()=>{
+                                                    categoryModel.find()
+                                                                .populate('Category.SubCategory.SubSubCategory.Products')
+                                                                .then((categories)=>{
+                                                                    res.send(categories)
+                                                                })
+                                                 })
+                                                 .catch((err)=>{
+                                                     res.send(`Error hai bhaiya error hai uppar waale mein error hai`)
+                                                 })
+                        });
                      }
                      //else if there is also a category and a sub category and also sub sub category
-                     else{
+            else{
                          category.Category[0].SubCategory[0].SubSubCategory[0].Products.push(product)
                          Promise.all([product.save(), category.save()])
                                 .then(()=>{
@@ -582,9 +600,10 @@ router.post('/input/product', (req, res)=>{
                                     res.send(err)
                                 })  
                      }
-                 })
+})
                  .catch((err)=>{
-                     res.send("Error hai bhaiya error hai")
+                     res.send("Error hai bhaiya error hai");
+                     console.log(err);
                  })
 })
 
