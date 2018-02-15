@@ -1,0 +1,4 @@
+1. Category, sub category, sub sub category == success
+2. none  == success
+3. Category, sub category == failure product is added to the wrong sub sub category
+4. Category  == failure , error
